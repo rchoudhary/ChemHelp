@@ -2,19 +2,18 @@
 This is a simple command line tool to perform common chemistry functions. It is meant to be used as supplementary tool, as it is not capable of tackling large, complex problems. It can perform the trivial calculations that are part of a problem and can be used to help check your work.
 
 # Supported Operating Systems
-Windows. That's it (sorry).
+Mac OSX
+Windows (need cmake and cygwin)
 
 #Building
-To build, simply download all the files, open up the project in Visual Studio, and build it. First you'll have to build the `core` project, *then* the `ChemHelp` project, otherwise you'll get an error that `core.lib` wasn't found.
+To build, simply download all the files, `cd` into the directory and run `./build.sh`. That's it! CMake and make take care of the rest.
 
 # Installation
-To install, simply place the `ChemHelp.exe` file from the build folders *and the `help-page.txt` file* (which can be downloaded from <a>http://tinyurl.com/chemhelp-help-page</a>) anywhere you want. Then add the location to your PATH variable (or install the executable in a location that's already part of your PATH variable). Then simply run `chemhelp ...` to use it.
-
-<b>Important: if you don't download and copy `help-page.txt` to the same location as `ChemHelp.exe` then the command `chemhelp --help` will not work!</b>
+To install, while the working directory is still the folder with all the files, run `install.sh`. This will copy the necessary `.dylib` to `/usr/local/lib` and the executable and the help page to `/usr/local/bin`.
 
 # Uses
 ##Input format
-Elements should be entered as written, e.g. Calcium is `Ca`, Iron is `Fe`, etc. *This program is indeed case sensitive!*
+Elements should be entered as written, e.g. Calcium is `Ca`, Iron is `Fe`, etc. *Element names are indeed case sensitive!*
 Compounds are entered as normal but subscripts should be entered as regular digits, e.g. `CO2`, `H2O`, etc.
 Subgroups can be entered as well with the subgroup within parenthesis `(...)` and the subgroup count following the closing parenthesis, e.g. `Mg(NO3)2`.
 
@@ -66,7 +65,7 @@ The output is simply the coefficients listed in a row.
 
 For the curious, you can also run it in verbose mode to see how the coefficients were solved for:
 
-    λ chemhelp -bv "C2H4 + O2 = CO2 + H2O"
+    > chemhelp -bv "C2H4 + O2 = CO2 + H2O"
     
     balancing equation: A[C2H4] + B[O2] -> C[CO2] + D[H2O]
     elements being examined: C H O
@@ -106,6 +105,7 @@ For the curious, you can also run it in verbose mode to see how the coefficients
     =========================
     
     1, 3, 2, 2
+    
 #Full Command List
 
     usage: chemistry [options/flags] [arguments]
