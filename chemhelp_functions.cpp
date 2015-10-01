@@ -298,7 +298,8 @@ void performLimitingReactant(int argc, char** argv, bool verbose)
 
     string reactionStr = ARG_LIMITING_REACTION;
     vector<string> reactantStrs = split(reactionStr.substr(0, reactionStr.find('=')), "+");
-    cout << "enter amounts of reactants (-1 if not given) in the format \"X mol\" or \"X g\":" << endl;
+    cout << "enter amounts of reactants (-1 if not given) in the format \"X mol\" or \"X g\"" << endl;
+    cout << "NOTE: this won't give the right answer unless the equation is balanced!" << endl;
 
     for (string reactantStr : reactantStrs)
     {
@@ -342,6 +343,7 @@ void performLimitingReactant(int argc, char** argv, bool verbose)
             amountStr = rawInput.substr(0, splitPos);
             unitStr = rawInput.substr(splitPos);
         }
+
         double amount;
         try
         {
@@ -352,10 +354,11 @@ void performLimitingReactant(int argc, char** argv, bool verbose)
             cout << "invalid input: \"" << rawInput << "\" is not a number" << endl;
             return;
         }
+
         double productAmountMols = 0.0;
         if (unitStr == UNIT_MOL)
         {
-            productAmountMols *= amount;
+            productAmountMols = amount;
         }
         else if (unitStr == UNIT_GRAMS)
         {
