@@ -1,3 +1,5 @@
+set(CMAKE_BUILD_TYPE "RELEASE")
+
 cmake_minimum_required(VERSION 3.2)
 project(chemhelp)
 
