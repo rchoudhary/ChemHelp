@@ -3,7 +3,8 @@ This is a simple command line tool to perform common chemistry functions. It is 
 
 # Supported Operating Systems
 Mac OSX
-Windows (need cmake and cygwin)
+
+(Windows if you have cmake and cygwin)
 
 #Building
 To build, simply download all the files, `cd` into the directory and run `./build.sh`. That's it! CMake and make take care of the rest.
