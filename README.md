@@ -123,7 +123,11 @@ For the curious, you can also run it in verbose mode to see how the coefficients
                             [products (d+e+f+...)]
                         NOTE: if you type spaces into the equation,
                         the equation MUST be surrounded by quotes ("")
-                        
+      -l            finds the limiting reactant of a reaction. prompts
+                    for the amount of each reactant.
+                        usage: chemistry -l [equation]
+                        NOTE: equation must be balanced beforehand
+    
     Special Options:
     (no flags can be specified alongside these options)
       --help        shows this page
