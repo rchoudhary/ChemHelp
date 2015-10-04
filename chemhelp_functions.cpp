@@ -275,29 +275,36 @@ void performLimitingReactant(int argc, char** argv, bool verbose)
         return;
     }
 
-
-    string targetProductStr = ARG_LIMITING_TARGET_PRODUCT;
-    int productCoeff;
-    string productName;
-
     double smallestProductAmount = numeric_limits<double>::max();
     string limitingReactant;
 
-    if (!isalpha(targetProductStr[0]))
+    string reactionStr = ARG_LIMITING_REACTION;
+    vector<string> reactantStrs = split(reactionStr.substr(0, reactionStr.find('=')), "+");
+
+    unsigned long firstProductStrStart = reactionStr.find('=') + 1;
+    while (isspace(reactionStr[firstProductStrStart])) firstProductStrStart++;
+    unsigned long firstProductStrEnd = firstProductStrStart + 1;
+    while (isalnum(reactionStr[firstProductStrEnd])) firstProductStrEnd++;
+    string firstProductStr = reactionStr.substr(firstProductStrStart, firstProductStrEnd - firstProductStrStart);
+
+    unsigned long nameStart = 0;
+    int productCoeff = 1;
+    string productName = "";
+    if (isalpha(firstProductStr[nameStart]))
     {
-        unsigned long productNameStart = 0;
-        while (isdigit(targetProductStr[productNameStart])) productNameStart++;
-        productCoeff = stoi(targetProductStr.substr(0, productNameStart));
-        productName = targetProductStr.substr(productNameStart);
+        productCoeff = 1;
+        productName = firstProductStr;
     }
     else
     {
-        productCoeff = 1;
-        productName = targetProductStr;
+        while (isdigit(firstProductStr[nameStart]))
+        {
+            nameStart++;
+        }
+        productCoeff = stoi(firstProductStr.substr(0, nameStart));
+        productName = firstProductStr.substr(nameStart);
     }
 
-    string reactionStr = ARG_LIMITING_REACTION;
-    vector<string> reactantStrs = split(reactionStr.substr(0, reactionStr.find('=')), "+");
     cout << "enter amounts of reactants (-1 if not given) in the format \"X mol\" or \"X g\"" << endl;
     cout << "NOTE: this won't give the right answer unless the equation is balanced!" << endl;
 
@@ -323,6 +330,7 @@ void performLimitingReactant(int argc, char** argv, bool verbose)
         cout << reactantStr << ": ";
         getline(cin, rawInput);
         unsigned long spacePos = rawInput.find(' ');
+
         string amountStr, unitStr;
         if (spacePos != string::npos)
         {
@@ -345,6 +353,7 @@ void performLimitingReactant(int argc, char** argv, bool verbose)
         }
 
         double amount;
+
         try
         {
             amount = stod(amountStr);
@@ -356,6 +365,7 @@ void performLimitingReactant(int argc, char** argv, bool verbose)
         }
 
         double productAmountMols = 0.0;
+
         if (unitStr == UNIT_MOL)
         {
             productAmountMols = amount;
@@ -372,13 +382,16 @@ void performLimitingReactant(int argc, char** argv, bool verbose)
                 cout << e.what() << endl;
             }
         }
-        productAmountMols /= reactantCoeff * productCoeff;
+
+        productAmountMols = productAmountMols / reactantCoeff * productCoeff;
         if (productAmountMols < smallestProductAmount)
         {
             smallestProductAmount = productAmountMols;
             limitingReactant = reactantName;
         }
+
         double productAmountGrams;
+
         try
         {
             productAmountGrams = productAmountMols * Compound(productName).getMolarMass();

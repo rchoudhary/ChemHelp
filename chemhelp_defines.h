@@ -50,9 +50,8 @@
 
 
 #define CMD_LIMITING_REACTANT "l"
-#define CMD_LIMITING_NUMARGS 4
+#define CMD_LIMITING_NUMARGS 3
 #define ARG_LIMITING_REACTION argv[2]
-#define ARG_LIMITING_TARGET_PRODUCT argv[3]
 
 
 void performMolarMass(int argc, char** argv, bool verbose);
