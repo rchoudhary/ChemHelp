@@ -1,29 +1,29 @@
-usage: chemistry [options/flags] [arguments]
+usage: chemhelp [options/flags] [arguments]
 
 Options:
 (only ONE option at a time can be specified)
   -m            calculate molar mass of compound
-                    usage: chemistry -m [compound]
+                    usage: chemhelp -m [compound]
   -s            performs stoichiometry between two compounds
-                    usage: chemistry -s [compound 1] [amount 1]
+                    usage: chemhelp -s [compound 1] [amount 1]
                         [unit 1 (g, mol)] [compound 2] [unit 2]
                         [OPTIONAL: ratio (x:y)]
   -b            balance a chemical equation
-                    usage: chemistry -b [reactants (a+b+c+...)] =
+                    usage: chemhelp -b [reactants (a+b+c+...)] =
                         [products (d+e+f+...)]
                     NOTE: if you type spaces into the equation,
                     the equation MUST be surrounded by quotes ("")
   -l            finds the limiting reactant of a reaction. prompts
                 for the amount of each reactant.
-                    usage: chemistry -l [equation]
+                    usage: chemhelp -l [equation]
                     NOTE: equation must be balanced beforehand
 
 Special Options:
 (no flags can be specified alongside these options)
   --help        shows this page
   --version     shows version number and author
-  
+
 Flags:
 (as many flags can be specified as desired)
   -v            show all output and/or work
-                    usages: chemistry -[opt]v [req args to [opt]]
+                    usages: chemhelp -[opt]v [req args to [opt]]

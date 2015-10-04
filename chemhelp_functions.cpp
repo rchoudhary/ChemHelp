@@ -327,7 +327,7 @@ void performLimitingReactant(int argc, char** argv, bool verbose)
         }
 
         string rawInput;
-        cout << reactantStr << ": ";
+        cout << ">>> " << reactantStr << ": ";
         getline(cin, rawInput);
         unsigned long spacePos = rawInput.find(' ');
 
