@@ -54,9 +54,37 @@
 #define ARG_LIMITING_REACTION argv[2]
 
 
+// calculates the molar mass of a compound or element
+//
+// argc, argv -- command line arguments to be processed
+// verbose    -- whether or not extra information should be outputted.
 void performMolarMass(int argc, char** argv, bool verbose);
+
+
+// uses stoichiometry to convert an amount of one element/compound to an amount of another element/compound
+//
+// argc, argv -- command line arguments to be processed
+// verbose    -- whether or not extra information should be outputted.
 void performStoich(int argc, char** argv, bool verbose);
+
+
+// balances a chemical reaction and then outputs the ceofficients
+//
+// argc, argv -- command line arguments to be processed
+// verbose    -- whether or not extra information should be outputted.
 void performBalance(int argc, char** argv, bool verbose);
+
+
+// finds the limiting reactant of a chemical equation
+//
+// argc, argv -- command line arguments to be processed
+// verbose    -- whether or not extra information should be outputted.
 void performLimitingReactant(int argc, char** argv, bool verbose);
+
+
+// loads the help page content from help-page.txt and outputs it to the terminal
 void outputHelp();
+
+
+// outputs the author and version number of the program
 void outputVersion();

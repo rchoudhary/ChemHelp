@@ -107,7 +107,7 @@ Compound::Compound(string formula) :
                 chunkStart = i;
             }
         }
-            // make sure that the very last chunk is read too
+        // make sure that the very last chunk is read too
         else if (i == this->formula.length())
         {
             string chunk = this->formula.substr(chunkStart);

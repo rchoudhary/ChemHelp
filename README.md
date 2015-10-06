@@ -3,7 +3,8 @@ This is a simple command line tool to perform common chemistry functions. It is 
 
 # Supported Operating Systems
 Mac OSX
-Windows (need cmake and cygwin)
+
+(Windows if you have cmake and cygwin)
 
 #Building
 To build, simply download all the files, `cd` into the directory and run `./build.sh`. That's it! CMake and make take care of the rest.
@@ -106,24 +107,47 @@ For the curious, you can also run it in verbose mode to see how the coefficients
     
     1, 3, 2, 2
     
+##Limiting reactant
+
+To find the limiting rectant of an equation, simply use this format:
+
+    > chemhelp -l [equation]
+    
+Note: the equation provided must be enclosed in quotes if it contains spaces and <i>must be balanced beforehand!</i>
+
+The program will use the first product as the target product to test against and will prompt the user to enter the amount of each reactant in either grams (g) or moles (mol). The whole output looks like this:
+
+    > chemhelp -l "4NH3+5O2=4NO+6H2O"
+    enter amounts of reactants (-1 if not given) in the format "X mol" or "X g"
+    NOTE: this won't give the right answer unless the equation is balanced!
+    >>> 4NH3: 2 g
+    0.117 mols (3.524 g) of NO
+    >>> 5O2: 4 g
+    0.100 mols (3.001 g) of NO
+    the limiting reactant is O2
+
 #Full Command List
 
-    usage: chemistry [options/flags] [arguments]
+    usage: chemhelp [options/flags] [arguments]
     
     Options:
     (only ONE option at a time can be specified)
       -m            calculate molar mass of compound
-                        usage: chemistry -m [compound]
+                        usage: chemhelp -m [compound]
       -s            performs stoichiometry between two compounds
-                        usage: chemistry -s [compound 1] [amount 1]
+                        usage: chemhelp -s [compound 1] [amount 1]
                             [unit 1 (g, mol)] [compound 2] [unit 2]
                             [OPTIONAL: ratio (x:y)]
       -b            balance a chemical equation
-                        usage: chemistry -b [reactants (a+b+c+...)] =
+                        usage: chemhelp -b [reactants (a+b+c+...)] =
                             [products (d+e+f+...)]
                         NOTE: if you type spaces into the equation,
                         the equation MUST be surrounded by quotes ("")
-                        
+      -l            finds the limiting reactant of a reaction. prompts
+                    for the amount of each reactant.
+                        usage: chemhelp -l [equation]
+                        NOTE: equation must be balanced beforehand
+    
     Special Options:
     (no flags can be specified alongside these options)
       --help        shows this page
@@ -132,4 +156,4 @@ For the curious, you can also run it in verbose mode to see how the coefficients
     Flags:
     (as many flags can be specified as desired)
       -v            show all output and/or work
-                        usages: chemistry -[opt]v [req args to [opt]]
+                        usages: chemhelp -[opt]v [req args to [opt]]
