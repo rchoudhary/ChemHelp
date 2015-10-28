@@ -12,6 +12,9 @@ To build, simply download all the files, `cd` into the directory and run `./buil
 # Installation
 To install, while the working directory is still the folder with all the files, run `install.sh`. This will copy the necessary `.dylib` to `/usr/local/lib` and the executable and the help page to `/usr/local/bin`.
 
+# Uninstallation
+To uninstall, `cd` into the directory with all the files and run `uninstall.sh`. This will remove the `.dylib` from `/usr/local/lib` and the executable and the help page from `/usr/local/bin`.
+
 # Uses
 ##Input format
 Elements should be entered as written, e.g. Calcium is `Ca`, Iron is `Fe`, etc. *Element names are indeed case sensitive!*
