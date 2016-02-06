@@ -21,7 +21,7 @@ Elements should be entered as written, e.g. Calcium is `Ca`, Iron is `Fe`, etc. 
 Compounds are entered as normal but subscripts should be entered as regular digits, e.g. `CO2`, `H2O`, etc.
 Subgroups can be entered as well with the subgroup within parenthesis `(...)` and the subgroup count following the closing parenthesis, e.g. `Mg(NO3)2`.
 
-<b>Note: currently charges of elements/compounds are not supported, do not try to include them!</b>
+<b>Note: While charges of elements/compounds are supported, none of chemhelp's functions do anything with them, so they can be left off</b>
 ## Calculating molar masses
 The program can be used to calculate the molar mass of an element, a list of elements, or a compound using the `-m` option. This can be done as such:
 
