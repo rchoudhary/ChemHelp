@@ -63,8 +63,10 @@ To balance a reaction, simply use this format:
 <b>Important: if you wish to space the reactants/products like so: `C2H4 + O2 = CO2 + H2O`, they must be surrounded with quotes: `"C2H4 + O2 = CO2 + H2O"` or must not contain spaces: `C2H4+O2=CO2+H2O`</b>
 
 Example:
+
     > chemhelp -b "C2H4 + O2 = CO2 + H2O"
     1, 3, 2, 2
+    
 The output is simply the coefficients listed in a row.
 
 For the curious, you can also run it in verbose mode to see how the coefficients were solved for:
