@@ -6,7 +6,7 @@ Mac OSX
 
 (Windows if you have cmake and cygwin)
 
-#Building
+# Building
 To build, simply download all the files, `cd` into the directory and run `./build.sh`. That's it! CMake and make take care of the rest.
 
 # Installation
@@ -16,7 +16,7 @@ To install, while the working directory is still the folder with all the files, 
 To uninstall, `cd` into the directory with all the files and run `uninstall.sh`. This will remove the `.dylib` from `/usr/local/lib` and the executable and the help page from `/usr/local/bin`.
 
 # Uses
-##Input format
+## Input format
 Elements should be entered as written, e.g. Calcium is `Ca`, Iron is `Fe`, etc. *Element names are indeed case sensitive!*
 Compounds are entered as normal but subscripts should be entered as regular digits, e.g. `CO2`, `H2O`, etc.
 Subgroups can be entered as well with the subgroup within parenthesis `(...)` and the subgroup count following the closing parenthesis, e.g. `Mg(NO3)2`.
@@ -45,7 +45,7 @@ To get the molar masses of more than one element, simply group them together as 
     
     120.124 g/mol
 Just ignore the total at the end.
-##Performing stoichiometry
+## Performing stoichiometry
 Simply use the `-s` option as such:
 
     > chemhelp -s [compound 1] [amount 1] [unit 1 (g|mol)] [compound 2] [unit 2 (g|mol)] [OPTIONAL: ratio (x:y)]
@@ -55,7 +55,7 @@ Example:
 
     > chemhelp -s H2O 50 g H mol 1:2
     5.551 mol
-##Balancing a reaction
+## Balancing a reaction
 To balance a reaction, simply use this format:
 
     > chemhelp -b [reactants (a+b+c...)]=[products (x+y+z...)]
@@ -112,7 +112,7 @@ For the curious, you can also run it in verbose mode to see how the coefficients
     
     1, 3, 2, 2
     
-##Limiting reactant
+## Limiting reactant
 
 To find the limiting rectant of an equation, simply use this format:
 
@@ -131,7 +131,7 @@ The program will use the first product as the target product to test against and
     0.100 mols (3.001 g) of NO
     the limiting reactant is O2
 
-#Full Command List
+# Full Command List
 
     usage: chemhelp [options/flags] [arguments]
     
